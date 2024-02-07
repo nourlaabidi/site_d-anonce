@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Publier</title>
+        <link rel="stylesheet" type="text/css" href="publier.css">
+    </head>
+
+    <body>
+        <div class="top-bar">
+            <div class="contact-info">
+              <p>Phone: +216 71 501 080</p>
+            </div>
+            <div class="social-links">
+              <p>Email: email@gmail.tn</p>
+              <a href="https://twitter.com/cotech" target="_blank"><img src="image/twitter2.png"></a>      
+              <a href="https://facebook.com/cotech" target="_blank"><img src="image/facebook.png"></a>
+              <a href="https://gmail.com/cotech" target="_blank"> <img src="image/gmail.png"></a>
+            </div>
+        </div>
+        <div class="navbar">    
+        <div class="container-fluid">
+              <div class="logo">
+                <a href="index.html"><img src="image\logo.png"></a>
+             
+              </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Rechercher sur annonce">
+            <button type="submit" class="search-button"><img src="image/search.png" alt="Rechercher"></button>
+        </div>
+        <div class="al">
+            <button class="al-button" onclick="window.location.href='login.html'"> <img src="image/login.png" alt="add">  se connecter </button>
+            <button class="al-button" onclick="window.location.href='publier.html'"> <img src="image/add.png" alt="add">  Publier une annonce </button>
+        </div>   
+        </div>
+           <div class="bar2">
+              <div  class="container-fluid">
+                <div class="links">
+                    <a href="cars/vehicule.html" ><img src="image/vehicule.png">  Véhicules</a>
+                    <a href="INFO&MULTIMEDIAS/informatique.html" ><img src="image/informatique.png">  Informatique & Multimedias</a>
+                    <a href="houses/maison.html"><img src="image/maison.png">  Maisons</a>
+                    <a href="Meubles/meubles.html"><img src="image/meuble.png">  meubles</a>
+                    <a href="Clothes/habillement.html"><img src="image/habillement.png">  Habillement</a> 
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div class="container">
+            
+            <h2 style="color: #f3792d;">Formulaire de publication d'annonce</h2>
+            <form>
+                <div class="form-group">
+                    <label for="titre">Quel est le titre de votre annonce?</label>
+                    <input type="text" id="titre" name="titre" required>
+                </div>
+                <div class="form-group">
+                    <label for="categorie">Catégorie:</label>
+                    <select id="categorie" name="categorie" required>
+                        <option value="voitures">Voitures</option>
+                        <option value="maison">Maison</option>
+                        <option value="vetement">Vêtements</option>
+                        <option value="meubles">Meubles</option>
+                        <option value="informatique">Informatique & Multimédia</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description de l'annonce:</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="prix">Quel est votre prix?</label>
+                    <input type="text" id="prix" name="prix" required>
+                </div>
+                
+                <div class="form-group">
+                        <div class="upload-container">
+                            <img id="image-preview-1" src=""  class="image-preview">
+                            <img id="image-preview-2" src=""  class="image-preview">
+                            <img id="image-preview-3" src=""  class="image-preview">
+                            <input type="file" id="file-input" class="file-input" accept="image/*" multiple>
+                        </div>
+                        <br>
+                    <input type="submit" value="Publier l'annonce">
+                </div>  
+            </form>
+        </div>
+         <div class="container2">
+            <p><h4><img src="image/lampe.png">Mettez en avant les détails importants!</h4>
+                Plus vous fournissez de détails, plus votre annonce sera de qualité, ce qui peut attirer davantage d`acheteurs intéressés.
+                <h4><img src="image/lampe.png">Soyez juste dans votre tarification!</h4>
+                Soyez honnête dans votre tarification, tout en gardant à l’esprit que la négociation est possible.
+                <h4><img src="image/lampe.png">Plus de photos, plus d`efficacité!</h4>
+                N`hésitez pas à ajouter autant de photos que possible pour donner une vue complète de votre produit ou service.
+                <h4><img src="image/lampe.png">Soyez accessible!</h4>
+                Un numéro de téléphone valide est essentiel pour faciliter les échanges avec les acheteurs potentiels et renforcer la confiance.</p>
+        </div>
+        </body>
+        <footer>
+        <div class="footer">
+                <div class="info-container">
+                    <img src="image/logo.png">
+                    <div class="links2">
+                        <a href="https://twitter.com/cotech" target="_blank"><img src="image/blackt.png"></a>      
+                        <a href="https://facebook.com/cotech" target="_blank"><img src="image/blackf.png"></a>
+                        <a href="https://gmail.com/cotech" target="_blank"> <img src="image/blackg.png"></a>
+                    </div>
+                </div> 
+            </div>
+        </footer> 
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const fileInput = document.getElementById("file-input");
+            const imagePreviews = document.querySelectorAll(".image-preview");
+    
+            let imageIndex = 0;
+
+            fileInput.addEventListener("change", function() {
+            const selectedFiles = fileInput.files;
+
+            for (let i = 0; i < selectedFiles.length; i++) {
+               if (imageIndex < imagePreviews.length) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    imagePreviews[imageIndex].src = e.target.result;
+                    imageIndex++;
+                };
+
+                reader.readAsDataURL(selectedFiles[i]);
+              }
+            }
+          });
+        });
+</script>  
+        
